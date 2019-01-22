@@ -219,6 +219,7 @@ a:active {
 
 .no-upper-margin {
 	margin-top: 0;
+	width: 30%;
 }
 
 .executive-img {
@@ -409,4 +410,12 @@ tr:hover:not(.header-cell) {
 	background: url("../assets/sponsors.jpeg") center;
 	background-size: cover;
 	background-position: center;
+}
+
+.del-but-sec {
+	min-height: 500px;
+}
+
+.del-but-sec p {
+	text-align: center;
 }

@@ -36,7 +36,7 @@ function toggleMenu() {
 }
 
 function adjustHeader() {
-    let angle = Math.atan((window.innerHeight + 20)/window.innerWidth) * 180 / Math.PI;
+    let angle = Math.atan(window.innerHeight/window.innerWidth) * 180 / Math.PI;
     $(".untransform-splash-lower").css("transform", "skewY(" + angle + "deg)");
     document.getElementsByClassName("splash-lower")[0].style.transform = "skewY(-" + angle + "deg)";
 

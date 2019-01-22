@@ -152,17 +152,17 @@ var lastFocus;
 $(function() {
 	greyOutThePast();
 	setInterval(greyOutThePast, 60000);
-	$('tr.clickable-row').click(function() {
-		renderModal(this);
-		return false;
-	});
+	// $('tr.clickable-row').click(function() {
+	// 	renderModal(this);
+	// 	return false;
+	// });
 
-	$('tr.clickable-row').keypress(function(e) {
-		if (e.which == 13 || e.which == 32) {
-			renderModal(this);
-			return false;
-		}
-	});
+	// $('tr.clickable-row').keypress(function(e) {
+	// 	if (e.which == 13 || e.which == 32) {
+	// 		renderModal(this);
+	// 		return false;
+	// 	}
+	// });
 
 	$('body').on('shown.bs.modal', '.modal', function () {
 		lastFocus = document.activeElement;

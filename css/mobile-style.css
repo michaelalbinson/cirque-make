@@ -97,6 +97,34 @@
 	}
 }
 
+@media screen and (max-width: 575px) {
+	.card-holster {
+		text-align: center;
+	}
+
+	.card-holster div.col-sm-4 {
+		padding: 0;
+		margin: 0;
+		width: 100%;
+	}
+
+	.card-parent {
+		width: 100%;
+		padding-top: 10px;
+		height: 10rem;
+		padding-left: 10%;
+		padding-right: 10%;
+	}
+
+	.card {
+		height: 10rem;
+	}
+
+	.card h3 {
+		line-height: 10rem;
+	}
+}
+
 #mobile-menu {
 	display: none;
 	background-color: white;
@@ -104,6 +132,7 @@
 	top: 0;
 	width: 100%;
 	z-index: 500;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 }
 
 #mobile-menu a:hover,

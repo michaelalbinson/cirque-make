@@ -2,7 +2,7 @@ l1head=head/compiled/l1.html
 l1foot=footer/compiled/l1.html
 space=echo "\n\n"
 
-website: ./head/ ./footer/ index.html delegates speakers partners spotlight
+website: ./head/ ./footer/ index.html delegates speakers partners spotlight faq
 
 ./head/:
 	cd head && $(MAKE) && $(space)
@@ -11,7 +11,7 @@ website: ./head/ ./footer/ index.html delegates speakers partners spotlight
 	cd footer && $(MAKE) && $(space)
 
 index.html: ./head/ splash.html cards.html taster.html about.html cranes.html ./footer/
-	cat head/compiled/root.html splash.html cards.html taster.html about.html cranes.html footer/compiled/root.html > ../index.html
+	cat head/compiled/root.html splash.html cards.html index/apps.html about.html team.html cranes.html footer/compiled/root.html > ../index.html
 
 delegates: ./head/ ./footer/
 	cat $(l1head) delegates/delegates_top.html delegates/delegates_old.html $(l1foot) > ../delegates/index.html
@@ -24,3 +24,9 @@ partners: ./head/ ./footer/
 
 spotlight: ./head/ ./footer/
 	cd spotlight && $(MAKE) && $(space)
+
+faq: ./head/ ./footer/
+	cd FAQ && $(MAKE) && $(space)
+
+photo-bar:
+	cd photo-bar && $(MAKE) && $(space)

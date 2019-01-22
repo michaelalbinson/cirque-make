@@ -8,26 +8,25 @@
 			<br>
 			<div class="btn-group" role="group" aria-label="Basic example">
 				<button id="apply-button" type="button" class="btn btn-light" onclick="switchDelegateSec('apply')">Apply!</button>
-				<button id="schedule-button" type="button" class="btn btn-light active" onclick="switchDelegateSec('schedule')">Schedule</button>
+				<button id="schedule-button" type="button" class="btn btn-light active" onclick="switchDelegateSec('schedule')">2019 Schedule</button>
 				<button id="logistics-button" type="button" class="btn btn-light" onclick="switchDelegateSec('logistics')">Logistics</button>
-				<button id="resumes-button" type="button" class="btn btn-light" onclick="switchDelegateSec('resumes')">Delegate Resumes</button>
+				<!-- <button id="resumes-button" type="button" class="btn btn-light" onclick="switchDelegateSec('resumes')">Delegate Resumes</button> -->
 			</div>
-			<div id="apply" class="hidden">
+			<div id="apply" class="hidden del-but-sec">
 				<p>Thank you for your interest in CIRQUE! To become a delegate, you must complete the general application. The application consists of two short answer questions and some general information about yourself.</p> 
 				<p>Feeling ready to learn how limitless your future can be? Click the button below to get started!</p>
-				<h3>Application Deadline: 11:59 PM, January 28th, 2018</h3>
+				<h3>Application Deadline: 11:59 PM, January 28th, 2019</h3>
 				<br><br><br>
-				<a class="btn btn-primary btn-lg" href="#delegates" disabled>Apply to CIRQUE 2018!</a>
+				<a href="https://docs.google.com/forms/d/e/1FAIpQLSeUqB49ihXq0j6Hw94nrKS9NzdJhOLIhR6bfy7th2TVRA3Rlw/viewform" class="btn btn-primary btn-lg" >Apply Now!</a>
 				<br><br>
-				<h4>Applications for CIRQUE 2018 Have Closed</h4>
 			</div>
-			<div id="schedule" class="">
+			<div id="schedule" class="del-but-sec">
 				<br>
-				<h2>CIRQUE 2018 Schedule</h2>
+				<h2>CIRQUE 2019 Schedule</h2>
 				<p><i>Click on an event to see more</i></p>
 				<div class="row">
-					<div class="col-md-offset-2 col-md-4 col-sm-6">
-						<h3>Friday February 2nd</h3>
+					<div class="col-md">
+						<h3>Friday February 8th</h3>
 						<table id="feb-2">
 							<tr class="centered header-cell">
 								<th>Time</th>
@@ -38,20 +37,24 @@
 								<td class="left-border">Registration and Sponsorship Expo</td>
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
-								<td>17:30</td>
+								<td>17:00</td>
 								<td class="left-border">Opening Remarks and Dinner</td>
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
-								<td>18:30</td>
-								<td class="left-border">Speaker: Andy Shaughnessy</td>
+								<td>18:00</td>
+								<td class="left-border">Speaker: Dave Timan</td>
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
-								<td>19:30</td>
+								<td>18:45</td>
+								<td class="left-border">BCG Case Study</td>
+							</tr>
+							<tr class="clickable-row" tabindex="0" role="button">
+								<td>20:00</td>
 								<td class="left-border">Workshop - Presented by Enactus</td>
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
 								<td>21:00</td>
-								<td class="left-border">Friday Keynote: Hugh Cameron</td>
+								<td class="left-border">Friday Keynote: Julie Lassonde</td>
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
 								<td>22:00</td>
@@ -59,8 +62,8 @@
 							</tr>
 						</table>
 					</div>
-					<div class="col-md-4 col-sm-6">
-						<h3>Saturday February 3rd</h3>
+					<div class="col-md">
+						<h3>Saturday February 9th</h3>
 						<table id="feb-3">
 							<tr class="centered header-cell">
 								<th>Time</th>
@@ -72,15 +75,19 @@
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
 								<td>9:30</td>
-								<td class="left-border">Speaker: Meaghan O’Reilly</td>
+								<td class="left-border">Speaker: Emily Columbo</td>
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
 								<td>10:30</td>
-								<td class="left-border">Workshop - Presented by CIRQUE</td>
+								<td class="left-border">Workshop - Presented by Starfish Medical</td>
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
 								<td>11:30</td>
-								<td class="left-border">Case Workshop - Presented by BCG</td>
+								<td class="left-border">Coffee Break</td>
+							</tr>
+							<tr class="clickable-row" tabindex="0" role="button">
+								<td>12:00</td>
+								<td class="left-border">Workshop - Presented by Smith School of Business</td>
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
 								<td>13:00</td>
@@ -88,58 +95,44 @@
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
 								<td>14:00</td>
-								<td class="left-border">Case Workshop Cont.</td>
+								<td class="left-border">Speaker: Tom Kennedy</td>
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
-								<td>14:30</td>
-								<td class="left-border">Speaker: Oleg Baranov</td>
-							</tr>
-							<tr class="clickable-row" tabindex="0" role="button">
-								<td>15:30</td>
-								<td class="left-border">Coffee Break</td>
-							</tr>
-							<tr class="clickable-row" tabindex="0" role="button">
-								<td>16:00</td>
+								<td>15:00</td>
 								<td class="left-border">Workshop - Presented by Scotiabank</td>
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
 								<td>17:30</td>
-								<td class="left-border">Presentation by Scotiabank</td>
+								<td class="left-border">Coffee Break</td>
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
 								<td>18:00</td>
-								<td class="left-border">Break Before Dinner</td>
+								<td class="left-border">Speaker: Nick Whalen</td>
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
-								<td>18:30</td>
+								<td>19:00</td>
 								<td class="left-border">Dinner</td>
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
-								<td>19:30</td>
-								<td class="left-border">Speaker: Stacey Douglas</td>
+								<td>20:00</td>
+								<td class="left-border">Saturday Keynote: Annette Bergeron</td>
 							</tr>
 							<tr class="clickable-row" tabindex="0" role="button">
-								<td>20:30</td>
-								<td class="left-border">Saturday Keynote: John Gamble</td>
-							</tr>
-							<tr class="clickable-row" tabindex="0" role="button">
-								<td>21:30</td>
+								<td>21:00</td>
 								<td class="left-border">Closing Remarks and Social</td>
 							</tr>
 						</table>
 					</div>
 				</div>
 				<div class="col-md-offset-2"></div>
-				<br><br><br><br><br><br><br><br>
 			</div>
-			<div id="logistics" class="hidden">
+			<div id="logistics" class="hidden del-but-sec">
 				<br><br>
-				<i>CIRQUE 2019 will be held at the Delta Waterfront Hotel in Kingston, ON. Use the map below for directions.</i>
+				<i>CIRQUE 2019 will be held at the Holiday Inn Hotel in Kingston, Ontario February 8-9. Use the map below for directions.</i>
 				<br><br>
-				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11435.87242845739!2d-76.4804086!3d44.228315!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdb3fba468055fd81!2sDelta+Hotels+by+Marriott+Kingston+Waterfront!5e0!3m2!1sen!2sca!4v1516597304025" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-				<br><br><br><br>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d34412.87241804271!2d-76.51735071909788!3d44.253521162212564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfd7913319d45c3b1!2sHoliday+Inn+Kingston+Waterfront!5e0!3m2!1sen!2sca!4v1547498444799" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 			</div>
-			<div id="resumes" class="hidden">
+<!-- 			<div id="resumes" class="hidden del-but-sec">
 				<br>
 				<h4>Submitting a Delegate Resume</h4>
 				<p>If you are interested in providing a resume to the corporate sponsors and partners of CIRQUE 2018, please download and fill out the resume found below and submit it to <a href="mailto:13ahb1@queensu.ca">13ahb1@queensu.ca</a>.</p>
@@ -148,8 +141,7 @@
 				<form method="get" action="files/CIRQUEResumeTemplate.docx" target="_blank">
    					<button class="btn btn-lg btn-primary" type="submit">Download Delegate Resume Template</button>
 				</form>
-				<br><br><br><br><br><br><br><br><br><br><br><br><br>
-			</div>
+			</div> -->
 			<br><br><br>
 		</div>
 	</div>
@@ -169,7 +161,7 @@
 				<div id="body-text-target" class="justify-text">TEXT</div>
 				<div id="map-target">TGT</div>
 				<br><br>
-				<button data-dismiss="modal" class="btn btn-default">Close</button>
+				<button data-dismiss="modal" class="btn btn-light">Close</button>
 			</div>
 		</div>
 	</div>
