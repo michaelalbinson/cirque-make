@@ -40,6 +40,11 @@ hr.light-theme {
     width: 55%;
 }
 
+hr.no-margin {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
 h3 {
 	margin-top: 0; 
 	font-weight: normal;

@@ -41,3 +41,9 @@
 footer a {
   color: var(--main-theme-blue);
 }
+
+
+footer hr.no-margin {
+  margin-top: -5px;
+  width: 15rem;
+}
