@@ -22,9 +22,8 @@ var payload = {
 		companysrc: "assets/bcg.png",
 		img_alt: "BCG logo"
 	}, 
-	"2 - 20:15": { // Enactus Workshop
-		text: "Enactus is back for CIRQUE 2019 after running a mini pitch competition last year. Details will be announced soon!",
-		companysrc: "assets/enactus.png"
+	"2 - 20:45": { // Networking Break
+		text: "Time to relax, grab a coffee and meet your fellow delegates!",
 	},
 	"2 - 21:15": { // Speaker: Dave Timon
 		text: "Dave Timan began his career at a productive internship at Black and Decker, in which he was involved in patenting several of his inventions. He then worked at Bombardier Transportation and started the company Engaia Inc., a consulting firm for green building design. Following the success of Engaia, he has been involved in multiple entrepreneurial ventures, including Charge Centre and TimberWolf Cycles. Dave is the founder and lead designer of TimberWolf Cycles, which produces high-performance wooden bicycles. Using his past design and entrepreneurial experience, Dave continues to grow and develop TimberWolf Cycles, while simultaneously consulting for Engaia and Ktect SBS.",
@@ -67,7 +66,32 @@ var payload = {
 		img_alt: "Thomas Kennedy Headshot"
 	},
 	"3 - 15:00": { // Scotiabank Workshop
-		text: "CIRQUE 2019’s title sponsor is back once again to lead two more highly interactive workshops! Details on these workshops will be announced soon. Scotiabank representatives are very enthusiastic networkers, so come ready to show your stuff at their workshops and get noticed. Scotiabank representatives will also be available for chatting throughout the entire event!",
+		html: "\
+			<div style='text-align: left;'>\
+			<h5>\
+				CIRQUE 2019’s title sponsor is back once again to lead two more highly interactive workshops! Delegates will have the choice of attending one of two workshops:\
+			</h5>\
+			<ul>\
+				<li>\
+					Capital Markets: Delegates will have an opportunity to learn about capital markets and participate in small elevator pitch competition at the end. This workshop is recommended for those with an interest in applied mathematics.\
+				</li>\
+				<li>\
+					Global Outreach: Delegates will be given an interactive presentation about Scotiabank’s worldwide connections and how to make a global impact in the workforce. This workshop is recommended for those interested in international business.\
+				</li>\
+			</ul>\
+			<p>\
+				At the conclusion of these workshops, delegates will be addressed by the Director of Recruiting for Scotiabank, Michael Shelsen.\
+			</p>\
+			<div style='text-align: center;'>\
+				<img src='" + PREFIX + "assets/speakers/mike.jpeg' class='modal-img-small super-rounded' alt='Mike Shelson Headshot'>\
+			</div>\
+			<h5>About Michael:</h5>\
+			<p>\
+				Michael (Mike) Shelsen is looking to inspire students to think about the limitless possibilities in business. He wants to share his story about how he got to where he is today as the Director of Global Recruitment at Scotiabank. In his speech he is looking to ask students to think about their core values and the type of lifestyle they would like to lead in the future. Then, he wants them to think about how these values will affect the type of career they choose to pursue.\
+			</p>\
+			<p>\
+				As a CPA,CA, Mike has also had the chance to travel the world with work. However, he would not have had the amazing international experiences he’s had  if he had not seized his opportunities. By sharing his career story, he hopes to encourage students to always have a positive attitude and take advantage of opportunities so they too can grow and thrive in their careers and be limitless.\
+			</p>",
 		companysrc: "assets/scotiabank.png",
 		img_alt: "Scotiabank logo"
 	},
@@ -93,31 +117,47 @@ var payload = {
 };
 
 function greyOutThePast() {
-	var feb3 = $('#feb-3').children().children('tr:not(.header-cell)');
-	var feb2 = $('#feb-2').children().children('tr:not(.header-cell)');
-	var dt = new Date()
-	var hrs = dt.getHours().toString();
-	var mins = dt.getMinutes().toString();
-	var day = dt.getDate();
-	var year;
-	if (dt.getYear() != 118 || dt.getMonth() != 1)
+	// days of the conference
+	var friday = new Date("February 8, 2019 12:00 PM");
+	var saturday = new Date("February 9, 2019 12:00 PM");
+	var sunday = new Date("February 10, 2019 12:00 PM");
+	var today = new Date();
+
+	// if we've passed the conference, dw about it
+	if (sunday < today)
 		return;
 
-	if (day >= 3) {
-		blurPast(feb3, hrs, mins);
-		blurAll(feb2);
+	// get html tables with the dates and times
+	var saturdaySched = $('#feb-3').children().children('tr:not(.header-cell)');
+	var fridaySched = $('#feb-2').children().children('tr:not(.header-cell)');
+
+	// extract information about what time it is
+	var hrs = today.getHours().toString();
+	var mins = today.getMinutes().toString();
+	var day = today.getDay();
+	// correct for the fact that getMinutes can return a single digit number
+	if (mins < 10)
+		mins = "0" + mins
+
+	// if it's saturday, blur out all of friday and start counting saturday
+	if (day == saturday.getDay()) {
+		blurPast(saturdaySched, hrs, mins);
+		blurAll(fridaySched);
 	}
-	else if (day >= 2) {
-		blurPast(feb2, hrs, mins);
-	}
+	else if (day == friday.getDay())
+		blurPast(fridaySched, hrs, mins);
 }
 
 function blurPast(els, hour, mins) {
-	var upNext = false;
+	var upNext = true;
 	var done = false;
 	var last;
+	var len = els.length;
 
-	els.each(function() {
+	els.each(function(index) {
+		if (done)
+			return;
+
 		var el = $(this);
   		var html = el.children().html();
   		var nextTime = getTime(html);
@@ -133,10 +173,21 @@ function blurPast(els, hour, mins) {
   			el.children().css('background-color', 'rgba(0, 0, 0, 0.3)');
   		}
 
-  		if (lastTime < currentTime && nextTime > currentTime) {
-  			last.children().css('background-color', 'rgba(0, 255, 0, 0.3)');
+  		if (lastTime <= currentTime && nextTime > currentTime) {
+  			console.log(currentTime)
+  			console.log(nextTime)
+  			if (last) {
+  				last.children().css('background-color', 'rgba(0, 255, 0, 0.3)');
+  			} else {
+  				el.children().css('background-color', 'rgba(0, 255, 0, 0.3)');
+  			}
+
   			done = true;
   			upNext = false;
+  		}
+
+  		if (index == len - 1 && !done && nextTime <= 2359) {
+  			el.children().css('background-color', 'rgba(0, 255, 0, 0.3)');
   		}
 
   		last = el;
@@ -159,7 +210,7 @@ function blurAll(els) {
 var lastFocus;
 $(function() {
 	greyOutThePast();
-	setInterval(greyOutThePast, 60000);
+	setInterval(greyOutThePast, 10000); //once every 10 seconds
 	$('tr.clickable-row').click(function() {
 		renderModal(this);
 		return false;
@@ -239,8 +290,8 @@ function loadAll(payload) {
 	if (payload.companysrc)
 		img.html("<img src='" + PREFIX + payload.companysrc + "' class='modal-img' alt='" + payload.img_alt +"'><br><br>");
 	else if (payload.doublesrc)
-		img.html("<img src='" + PREFIX + "assets/team/Jamison.jpg' class='modal-img-small super-rounded' alt='Benigna Ahsan'>" +
-			"<img src='" + PREFIX + "assets/team/Andrew.jpg' class='modal-img-small super-rounded' alt='Jamie-Lee Freeston'>");
+		img.html("<img src='" + PREFIX + "assets/team/Jamison.jpg' class='modal-img-small super-rounded' alt='Jamison Higa Headshot'>" +
+			"<img src='" + PREFIX + "assets/team/Andrew.jpg' class='modal-img-small super-rounded' alt='Andrew Yang Headshot'>");
 	else if (payload.speakersrc)
 		img.html("<img src='" + PREFIX + payload.speakersrc + "' class='modal-img rounded' alt='" + payload.img_alt +"'>");
 
