@@ -7,7 +7,7 @@ The CIRQUE 2019 website, made a bit easier to navigate using the command line to
 Everything outside of the `make` directory is already compiled and ready to go, so if you're more of a let-me-edit-raw-html person, just use everything in here, and skip the `make` directory.
 
 ## Why `make`?
-Make is cool, easy to learn and crazy flexible. It was also a great way to learn how to work with general purpose linux commands (if you have a Windows computer, I apologize but setup won't be covered here, take a look at (this)[http://gnuwin32.sourceforge.net/packages/make.htm]).
+Make is cool, easy to learn and crazy flexible. It was also a great way to learn how to work with general purpose linux commands (if you have a Windows computer, I apologize but setup won't be covered here, take a look at [this](http://gnuwin32.sourceforge.net/packages/make.htm)).
 
 ### TODO:
 1. Filesystem watching script to auto-make on fs change
